@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Sender</string>
+    <string name="to_google_maps">To Google Maps</string>
+    <string name="send_email">Send Email</string>
+    <string name="open_receiver">Open Receiver</string>
+
+    <string name="maps_query">Рестораны</string>
+    <string name="maps_not_found">Google Maps не установлен</string>
+
+    <string name="email_address">android@otus.ru</string>
+    <string name="email_subject">Домашнее задание Activity</string>
+    <string name="email_body">Добрый день!\n\nВо вложении — решение домашнего задания по Activity и Intent.\n\nС уважением,\nстудент курса Android Developer</string>
+    <string name="email_chooser_title">Отправить письмо через…</string>
+    <string name="email_client_not_found">Почтовый клиент не найден</string>
+
+    <string name="payload_title">Славные парни</string>
+    <string name="payload_year">2016</string>
+    <string name="payload_description">Что бывает, когда напарником брутального костолома становится субтильный лопух? Наемный охранник Джексон Хили и частный детектив Холланд Марч вынуждены работать в паре, чтобы распутать плевое дело о пропавшей девушке, которое оборачивается преступлением века. Смогут ли парни разгадать сложный ребус, если у каждого из них – свои, весьма индивидуальные методы.</string>
+    <string name="open_compose">Compose</string>
+    <string name="compose_screen_title">Sender (Compose)</string>
+    <string name="receiver_not_found">Приложение-receiver не установлено</string>
 </resources>

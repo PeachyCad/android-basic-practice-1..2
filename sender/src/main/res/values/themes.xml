@@ -13,4 +13,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Для Compose-экрана: свой TopAppBar рисует Compose,
+         системный ActionBar из темы был бы вторым сверху. -->
+    <style name="Theme.Activities.Compose" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
 </resources>

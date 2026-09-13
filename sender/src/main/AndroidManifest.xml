@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--
+        Android 11+ (API 30) прячет от приложения список чужих пакетов.
+        Без этой декларации явный Intent в Google Maps упадёт
+        с ActivityNotFoundException, хотя приложение установлено.
+    -->
+    <queries>
+        <package android:name="com.google.android.apps.maps" />
+
+        <!-- Почтовые клиенты: объявляют intent-filter на ACTION_SENDTO + mailto: -->
+        <intent>
+            <action android:name="android.intent.action.SENDTO" />
+            <data android:scheme="mailto" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Activities" />
+        android:theme="@style/Theme.Activities">
+
+        <activity
+            android:name=".SenderActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SenderComposeActivity"
+            android:exported="false"
+            android:label="@string/compose_screen_title"
+            android:theme="@style/Theme.Activities.Compose" />
+
+    </application>
 
 </manifest>
