@@ -1,15 +1,13 @@
 <resources>
-    <string name="app_name">Activities</string>
+    <string name="app_name">Activities Compose</string>
+    <string name="title_profile">Профиль</string>
     <string name="title_send">Отправить</string>
+    <string name="button_edit_profile">Редактировать профиль</string>
+    <string name="content_description_photo">Фото профиля</string>
 
     <string name="dialog_photo_title">Фото профиля</string>
     <string name="dialog_photo_take">Сделать фото</string>
     <string name="dialog_photo_pick">Выбрать фото</string>
-
-    <string-array name="photo_actions">
-        <item>@string/dialog_photo_take</item>
-        <item>@string/dialog_photo_pick</item>
-    </string-array>
 
     <string name="dialog_rationale_title">Нужен доступ к камере</string>
     <string name="dialog_rationale_message">Камера нужна, чтобы сделать фото для профиля. Снимок остается на устройстве и никуда не отправляется без вашего действия.</string>

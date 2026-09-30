@@ -1,0 +1,16 @@
+# Дополнения к общему config/detekt/detekt.yml для Compose-кода
+naming:
+  FunctionNaming:
+    # Composable-функции по соглашению называются с большой буквы
+    ignoreAnnotated: ['Composable']
+complexity:
+  LongParameterList:
+    # Stateless-composable принимает состояние и колбэки параметрами - это норма
+    ignoreAnnotated: ['Composable']
+style:
+  UnusedPrivateMember:
+    # @Preview-функции вызывает только Android Studio
+    ignoreAnnotated: ['Preview']
+  MagicNumber:
+    # Цвета темы вида Color(0xFF6200EE) объявлены именованными свойствами
+    ignorePropertyDeclaration: true

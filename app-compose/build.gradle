@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id("io.gitlab.arturbosch.detekt")
+}
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        // Отличается от :app, чтобы обе версии могли стоять на устройстве одновременно
+        applicationId "otus.gpb.homework.activities.compose"
+        minSdk 23
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    namespace 'otus.gpb.homework.activities.compose'
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        // Kotlin 1.9.x: версия компилятора Compose жестко привязана к версии Kotlin.
+        // 1.5.11 <-> Kotlin 1.9.23. С Kotlin 2.0+ вместо этого подключают плагин
+        // org.jetbrains.kotlin.plugin.compose
+        kotlinCompilerExtensionVersion '1.5.11'
+    }
+}
+
+detekt {
+    source = files("src/main/java", "src/main/kotlin")
+    // Второй файл дополняет общий конфиг правилами для @Composable-функций
+    config = files("$rootDir/config/detekt/detekt.yml", "detekt-compose.yml")
+}
+
+tasks.named("detekt").configure {
+    reports {
+        txt.required.set(false)
+        html.required.set(true)
+        md.required.set(false)
+        xml.required.set(false)
+        sarif.required.set(false)
+        html.outputLocation.set(file("build/reports/detekt/detekt.html"))
+    }
+}
+
+dependencies {
+    // BOM согласует версии всех артефактов Compose между собой
+    def composeBom = platform('androidx.compose:compose-bom:2024.05.00')
+    implementation composeBom
+
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.activity:activity-compose:1.9.0'
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+}
